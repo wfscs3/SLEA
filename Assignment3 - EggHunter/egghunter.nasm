@@ -28,7 +28,7 @@ nextpageloop:
 nextaddrloop:
     inc esi             ;increment esi 
     lea ebx, [esi+0x4]  ;load value in esi + 0x4 into ebx (next page?)
-    push 0x21           ;sys_access
+    push 0x21     ;sys_access
     pop eax
     int 0x80            
 
@@ -45,7 +45,7 @@ nextaddrloop:
 ;---------------------------------------------------
 
 cmp al, 0xf2        ;check for EFAULT
-je nextpageloop     ;jump is EFAULT to nextpageloop
+je nextpageloop     ;jump is EFAULT to nextpageloop <-- might be wrong!
 
 ;---------------------------------------------------
 ; if the page is accessible we want to set set our 
@@ -55,7 +55,7 @@ je nextpageloop     ;jump is EFAULT to nextpageloop
 ;---------------------------------------------------
 
 mov eax, 0x41414141 ; place our tag (AAAA) into eax
-mov edi, edx        ; save pointer to edi
+mov edi, esi        ; save pointer to edi
 scasd               ; compare edi to our tag in eax 
 jne nextaddrloop    ; jump to next address pointer if no match
 scasd               ; repeat comparison
