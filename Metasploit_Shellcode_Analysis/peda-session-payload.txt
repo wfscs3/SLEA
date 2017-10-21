@@ -1,0 +1,4 @@
+break main
+break *0x400450
+break *0x4003e0
+

