@@ -25,14 +25,6 @@ main()
 
     printf("[*] Shellcode Length:  %d\n", strlen(shellcode));
 
-    printf("[*] Recovered Original Shellcode: \n");
-
-        for (int i = 0; i < strlen(shellcode); i++) {
- 
-                printf("\\x%x", shellcode[i]);
-
-        }  
-
 	int (*ret)() = (int(*)())shellcode;
 
 	ret();
