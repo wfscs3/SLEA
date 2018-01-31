@@ -20,11 +20,11 @@ int main( )
 	
         /* Print original shellcode for verification */
         printf("[*] Original Shellcode: \n");
-       
         for (int i = 0; i < strlen(shellcode); i++) {
 
                 printf("\\x%x", shellcode[i]);
         }
+        printf("\n[*] Original Shellcode Length:  %d\n", strlen(shellcode));
 
 	/* Init vector */
 	unsigned char iv[AES_BLOCK_SIZE];
@@ -48,6 +48,7 @@ int main( )
     
                 printf("\\x%x", ciphertext[i]);
         }
+        printf("\n[*] Encrypted Shellcode Length:  %d\n", strlen(ciphertext));
 
 	/* AES-128 bit CBC Decryption */
 	memset(iv, 0x00, AES_BLOCK_SIZE); 
@@ -63,6 +64,8 @@ int main( )
 
         }  
 		
-	return 0;
+        printf("\n[*] Done \n");	
+
+        return 0;
 }
  

@@ -21,7 +21,7 @@ main()
     AES_KEY dec_key;
     memset(iv, 0x00, AES_BLOCK_SIZE); 
     AES_set_decrypt_key(key, sizeof(key)*8, &dec_key); // Size of key is in bits
-    AES_cbc_encrypt(ciphertext, shellcode, sizeof(ciphertext), &dec_key, iv, AES_DECRYPT);
+    AES_cbc_encrypt(ciphertext, shellcode, 96, &dec_key, iv, AES_DECRYPT);
 
     printf("[*] Recovered Original Shellcode: \n");
 
