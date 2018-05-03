@@ -1,4 +1,4 @@
-; Filename: rolling_XOR_decoder.nasm
+; Filename: poly_chmod.nasm
 ; Author: wfscs3
 
 global _start
