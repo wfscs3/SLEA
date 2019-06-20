@@ -35,6 +35,9 @@ _start:
 	pop eax
 	int 0x80
 
+
+
+
 	;xor eax,eax				; Clear eax
 	;mov al,0x6				; Set eax to 0x6 (sys_close)
 	push byte 6
